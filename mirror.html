@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" lang="en">
+    <title>Code Clash!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Code Mirror -->
+    <script src="./codemirror-5.28.0/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="./codemirror-5.28.0/lib/codemirror.css">
+    <link rel="stylesheet" href="./codemirror-5.28.0/theme/3024-night.css"></link>
+    <script src="./codemirror-5.28.0/mode/javascript/javascript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" id="code"></div>
+            <div class="col-md-2">
+                <button class="btn btn-default" id="test">Test It!</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var myCodeMirror = CodeMirror(document.getElementById("code"), {
+        lineNumbers: true,
+        theme: "3024-night"
+    });
+    $('#test').on("click", function(){
+        var code = myCodeMirror.getValue();
+        var funcCall = 
+        console.log(funcCall)
+        // var func = new Function(code);
+        // func()
+    })
+
+</script>
+</html>
