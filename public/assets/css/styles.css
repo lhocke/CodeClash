@@ -1,0 +1,18 @@
+#header-text{
+	color: white;
+}
+
+.test-background {
+	background-color: gray;
+}
+
+footer {
+	background-color: orange;
+	height: 50px;
+}
+
+#stat-header {
+	background-color: orange;
+	height: 50px;
+	margin: 0px auto;
+}
