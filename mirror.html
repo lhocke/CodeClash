@@ -29,28 +29,31 @@
     </div>
 </body>
 <script type="text/javascript">
+
     var myCodeMirror = CodeMirror(document.getElementById("code"), {
         lineNumbers: true,
         theme: "3024-night"
     });
+
     $('#test').on("click", function(){
         var code = myCodeMirror.getValue();
-        var funcBody = code.split('{')
-        funcBody = funcBody[1]
-        funcBody = funcBody.split('}')[0]
-        var funcArg = code.split(')')[0].split('(')[1]
-        funcArg = [funcArg]
+        var funcBody = code.split('{');
+        funcBody = funcBody[1];
+        funcBody = funcBody.split('}')[0];
+        var funcArg = code.split(')')[0].split('(')[1];
+        funcArg = [funcArg];
         console.log(typeof(funcBody));
         console.log(typeof(funcArg));
         var func = new Function(funcArg, funcBody);
         var funCheck = function() {
             if (func(2,3) === 5 && func(3,8) === 11) {
                 // return true
-                alert("congrats!")
+                alert("congrats!");
             } else {
-                alert('fail')
-            }
-        }
+                alert('fail');
+            };
+        };
+        
         funCheck()
 
     })
