@@ -21,29 +21,39 @@
         </div>
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8" id="code"></div>
+            <div class="col-md-8" id="code-box"></div>
             <div class="col-md-2">
                 <button class="btn btn-default" id="test">Test It!</button>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center" id="question-box"><h2>Fix the above function</h2></div>
         </div>
     </div>
 </body>
 <script type="text/javascript">
 
-    var myCodeMirror = CodeMirror(document.getElementById("code"), {
+    var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
         lineNumbers: true,
-        theme: "3024-night"
+        theme: "3024-night",
+        value: "function (x,y) {\n    x + y \n}"
     });
 
     $('#test').on("click", function(){
+
+        // pulls code from editor
         var code = myCodeMirror.getValue();
+
+        // converts editor code to values for new function
         var funcBody = code.split('{');
         funcBody = funcBody[1];
         funcBody = funcBody.split('}')[0];
+
         var funcArg = code.split(')')[0].split('(')[1];
         funcArg = [funcArg];
-        console.log(typeof(funcBody));
-        console.log(typeof(funcArg));
+
+        // creates new function for validation
         var func = new Function(funcArg, funcBody);
         var funCheck = function() {
             if (func(2,3) === 5 && func(3,8) === 11) {
@@ -53,7 +63,7 @@
                 alert('fail');
             };
         };
-        
+
         funCheck()
 
     })
