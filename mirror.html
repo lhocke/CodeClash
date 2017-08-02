@@ -38,7 +38,8 @@
     var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
         lineNumbers: true,
         theme: "3024-night",
-        value: "function (x,y) {\n    x + y \n}"
+        value: "function (x,y) {\n    x + y \n}",
+        viewportMargin: 50
     });
 
     $('#test').on("click", function(){
