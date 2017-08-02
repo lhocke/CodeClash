@@ -36,13 +36,18 @@ var getQuestion = function(question) {
         console.log(questionId)
         $.get("/api/questions" + questionId, function(data) {
             console.log(data[qIndex])
+            data = data[qIndex];
+            console.log(data.valid_args[0].slice(1,-1))
+            console.log(data.exp_val)
+
+            console.log(typeof(data.valid_args[0]))
             currentQMirror = {
                 lineNumbers: true,
                 theme: "3024-night",
-                value: data[qIndex].question_func1 + "\n" + data[qIndex].question_func2 + "\n" + data[qIndex].question_func3
+                value: data.question_func1 + "\n" + data.question_func2 + "\n" + data.question_func3
                 // value: "function (x,y) {\n    x + y \n}"
             };
-            $('#question-box').append('<h4>' + data[qIndex].question_text + '</h4>');
+            $('#question-box').append('<h4>' + data.question_text + '</h4>');
             console.log(currentQMirror)
             var myCodeMirror =  CodeMirror(document.getElementById("code-box"), currentQMirror)
             $('#test').on("click", function(){
@@ -61,7 +66,7 @@ var getQuestion = function(question) {
                 // creates new function for validation
                 var func = new Function(funcArg, funcBody);
                 var funCheck = function() {
-                    if (func(2,3) === 5 && func(3,8) === 11) {
+                    if (func(data.valid_args[0].slice(1,-1)) == data.exp_val ) {
                         // return true
                         // alert("congrats!");
                         successQ.push(currentQ);

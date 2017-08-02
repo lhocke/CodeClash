@@ -36,6 +36,13 @@ module.exports = function(sequelize, DataTypes) {
             set: function (val) {
                 this.setDefaultValue('valid_args', val.join(';'));
             }
+        },
+        exp_val: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
         }
     })
     return Question;
