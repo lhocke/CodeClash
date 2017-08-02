@@ -1,7 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var exphbs = require("express-handlebars");
+var exphbs = require('express-handlebars');
+var flash = require('connect-flash');
+var sessions = require('sessions');
 
 var PORT = process.env.PORT || 7500;
 
