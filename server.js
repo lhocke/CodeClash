@@ -16,16 +16,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.get('/', function (req, res) {
-    res.render('profile', {layout: 'profile-layout'}); //change this to main or any page you need to start for testing
-});
-// app.use(express.static("public"));
+// app.get('/', function (req, res) {
+//     res.render('profile', {layout: 'profile-layout'}); //change this to main or any page you need to start for testing
+// });
+app.use(express.static("public"));
 
 var exphbs = require('express-handlebars');
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // change force to false if we want to keep the model/table or this will drop it.
 // change force to true to drop the model/table if it exists

@@ -42,7 +42,7 @@ module.exports = function(app) {
   app.get('/questions/:id', function (req, res) {
     db.Question.findOne({
       where: {
-        id: req.params.id
+        id: req.body.id
       }
     }).then(function(dbQuestion) {
       res.json(dbQuestion);
