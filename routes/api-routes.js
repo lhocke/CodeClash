@@ -15,8 +15,8 @@ module.exports = function(app) {
         user: dbUser[0]
       };
       console.log('GET: api/profile/:id', hbsObject);
-      // res.json(dbUser);
-      res.render('profile', hbsObject);
+      res.json(dbUser);
+      // res.render('profile', hbsObject);
     });
   });
 
