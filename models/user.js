@@ -41,11 +41,11 @@ module.exports = function(sequelize, DataTypes) {
     score: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    },
-    first_time: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
     }
+    // first_time: {
+    //   type: DataTypes.BOOLEAN,
+    //   defaultValue: true
+    // }
   });
 
   return User;
