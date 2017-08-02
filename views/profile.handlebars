@@ -8,6 +8,7 @@
 				<div class="col-md-2">
 					<a href="arena-test.html"><h3>Go to Arena</h3></a>
 				</div>
+				<!-- Add link to multiplayer if time allows. -->
 			</div>
 		</div>
 	</nav>
@@ -15,24 +16,26 @@
 
 <div class="container test-background">
 	<div class="row">
+		<!-- Add handlebars to the user span. -->
 		<h3 id="stat-header"><span class="user-render">User</span>'s Profile Page</h3>
 	    <div class="col-md-12">
 		  	
 		  	<div class="row">
 		  		<div class="col-md-12">
-		  			<h4>Player Score: </h4>
-		  			<h4>Solo Stats:</h4>
+		  			<h4>Player Score: {{this.score}}</h4>
+		  			<h4>Solo Stats</h4>
 					<ul>
-						<li>Solo Wins: </li>
-						<li>Solo Losses: </li>
+						<li>Solo Wins: {{this.solo_wins}}</li>
+						<li>Solo Losses: {{this.solo_losses}}</li>
 						<li>Total Solo Attempts: </li>
 					</ul>
-		  			<h4>Duel Stats: </h4>
+					<!-- IN CASE WE HAVE TIME WE'LL ADD MULTIPLAYER -->
+		  			<!-- <h4>Duel Stats</h4>
 	  				<ul>
-	  					<li>Duels Won: </li>
-	  					<li>Duels Lost: </li>
+	  					<li>Duels Won: {{this.duel_wins}}</li>
+	  					<li>Duels Lost: {{this.duel_losses}}</li>
 	  					<li>Total Duels: </li>
-	  				</ul>
+	  				</ul> -->
 		  		</div>
 		  	</div>
 	    </div>
