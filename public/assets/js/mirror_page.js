@@ -1,27 +1,43 @@
 $(document).ready(getQuestion());
 
-function getQuestion() {
-    questionId;
-    min = Math.ceil(1);
-    max = Math.floor(question.length);
-    questionId = Math.floor(Math.random() * (max - min)) + min;
+var currentQ
+
+var successQ = []
+function getQuestion(question) {
+    questionId = question || "";
+    if (questionId) {
+        questionId = "/?questionId" + questionId;
+    }
+    // min = Math.ceil(1);
+    // max = Math.floor(question.length);
+
+    questionId = Math.floor(Math.random() * (question.length - 1)) + 1;
+    
+    for (var i = 0; i < successQ; i++) {
+        if (questionId === successQ[i]) {
+            questionId = Math.floor(Math.random() * (question.length - 1)) + 1;
+        }
+    }
+
+    currentQ = questionId;
+    
     $.get("/api/questions" + questionId, function(data) {
         console.log(data)
         var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
-            lineNumbers = true,
+            lineNumbers: true,
             theme: "3024-night",
             value: data.question_func
-        })
-    })
-}
+        });
+    });
+};
 
 
 
-var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
-    lineNumbers: true,
-    theme: "3024-night",
-    value: "function (x,y) {\n    x + y \n}"
-});
+// var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
+//     lineNumbers: true,
+//     theme: "3024-night",
+//     value: "function (x,y) {\n    x + y \n}"
+// });
 
 // myCodeMirror.setSize(800,auto)
 
@@ -53,4 +69,4 @@ $('#test').on("click", function(){
     funCheck()
 })
 
-// $('#next-btn').on('click', )
+$('#next-btn').on('click', getQuestion())

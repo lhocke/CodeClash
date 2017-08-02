@@ -32,14 +32,21 @@ module.exports = function(app) {
     // });
   });
 
-  app.get('/arena/:id', function (req, res) {
-
-
+  app.get('/api/questions', function (req, res) {
+    db.Question.findAll({
+    }).then(function(dbQuestion) {
+      res.json(dbQuestion)
+    });
   });
 
-  app.get('/arena/:id', function (req, res) {
-
-
+  app.get('/questions/:id', function (req, res) {
+    db.Question.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbQuestion) {
+      res.json(dbQuestion);
+    });
   });
 
 
