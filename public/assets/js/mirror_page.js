@@ -37,8 +37,8 @@ var getQuestion = function(question) {
         $.get("/api/questions" + questionId, function(data) {
             console.log(data[qIndex])
             data = data[qIndex];
-            console.log(typeof(data.valid_args[0].slice(1,-1).split()))
-            console.log(data.valid_args[0].slice(1,-1).split(','))
+            console.log(typeof(data.valid_args[0].slice(1,-1).split(',')))
+            // console.log(data.valid_args[0].slice(1,-1).split(','))
             console.log(data.exp_val)
 
             // console.log(typeof(data.valid_args[0]))
@@ -63,17 +63,19 @@ var getQuestion = function(question) {
 
                 var funcArg = code.split(')')[0].split('(')[1];
                 funcArg = [funcArg];
-                console.log(funcArg)
 
-                // creates new function for validation
                 var func = new Function(funcArg, funcBody);
-                console.log(func)
-                for (var i = 0; i < data.valid_args.length; i++){
-                    console.log(func(data.valid_args[i]))
-                }
+                
                 var funCheck = function() {
-                    // console.log(funCheck)
-                    if (func(data.valid_args[0].slice(1,-1).split(",")[0], data.valid_args[0].slice(1,-1).split(",")[1]) == data.exp_val.toString() ) {
+                    
+                    var a = parseInt(data.valid_args[0].slice(1,-1).split(',')[0])
+                    console.log(a)
+                    var b = parseInt(data.valid_args[0].slice(1,-1).split(',')[1])
+                    console.log(b)
+                    for (var i = 0; i < data.valid_args.length; i++){
+                    console.log(func(data.valid_args[i].slice(1,-1)))
+                }
+                    if (func(a,b) == data.exp_val) {
                         console.log(funCheck)
                         // return true
                         // alert("congrats!");
@@ -81,7 +83,7 @@ var getQuestion = function(question) {
                         $('#success-modal').modal('toggle');
                         $('#next-btn').on('click', getQuestion())
                     } else {
-                        console.log($(this))
+                        // console.log($(this))
                         // alert('fail');
                         $('#fail-modal').modal('toggle');
                     };
