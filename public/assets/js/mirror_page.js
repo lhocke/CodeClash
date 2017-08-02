@@ -1,9 +1,10 @@
 var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
     lineNumbers: true,
     theme: "3024-night",
-    value: "function (x,y) {\n    x + y \n}",
-    viewportMargin: 50
+    value: "function (x,y) {\n    x + y \n}"
 });
+
+myCodeMirror.setSize(800,auto)
 
 $('#test').on("click", function(){
 
@@ -32,3 +33,5 @@ $('#test').on("click", function(){
     };
     funCheck()
 })
+
+// $('#next-btn').on('click', )
