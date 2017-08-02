@@ -7,7 +7,21 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        question_func: {
+        question_func_1: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        question_func_2: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        question_func_3: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
