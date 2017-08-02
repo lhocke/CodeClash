@@ -16,15 +16,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.get('/', function (req, res) {
+    res.render('profile', {layout: 'profile-layout'}); //change this to main or any page you need to start for testing
+});
+// app.use(express.static("public"));
+
 var exphbs = require('express-handlebars');
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 require("./routes/api-routes.js")(app);
 
-app.use('/', routes);
-
-db.sequelize.sync({ force: true }).then(function() {
+// change force to false if we want to keep the database or this will drop it.
+// change force to true to drop the database if it exists
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
