@@ -16,7 +16,32 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="modal fade" tabindex="-1" role="dialog" id="success-modal" aria-labelledby="success-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Congratulations!</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="profile-btn">Back to My Profile</button>
+                        <button class="btn btn-primary" data-dismiss="modal" id="next-btn">Next Challenge!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" role="dialog" id="fail-modal" aria-labelledby="fail-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Sorry, Try Again!</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="profile-btn">Back to My Profile</button>
+                        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>        <div class="row">
             <br>
             <br>
         </div>
@@ -60,14 +85,14 @@
         var funCheck = function() {
             if (func(2,3) === 5 && func(3,8) === 11) {
                 // return true
-                alert("congrats!");
+                // alert("congrats!");
+                $('#success-modal').modal('toggle');
             } else {
-                alert('fail');
+                // alert('fail');
+                $('#fail-modal').modal('toggle');
             };
         };
-
         funCheck()
-
     })
 
 </script>
