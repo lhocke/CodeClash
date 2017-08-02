@@ -6,7 +6,7 @@
 					<h1 id="header-text">CODE CLASH</h1>
 				</div>
 				<div class="col-md-2">
-					<a href="arena-test.html"><h3>Go to Arena</h3></a>
+					<a href="arena-test.html"><h3 id="arena-link">Go to Arena</h3></a>
 				</div>
 				<!-- Add link to multiplayer if time allows. -->
 			</div>
@@ -27,7 +27,7 @@
 					<ul>
 						<li>Solo Wins: {{this.solo_wins}}</li>
 						<li>Solo Losses: {{this.solo_losses}}</li>
-						<li>Total Solo Attempts: </li>
+						<li>Total Solo Attempts: <span id="solo-attempts"></span></li>
 					</ul>
 					<!-- IN CASE WE HAVE TIME WE'LL ADD MULTIPLAYER -->
 		  			<!-- <h4>Duel Stats</h4>
@@ -45,3 +45,6 @@
 <footer>
 	<p class="text-center">&copy; Copyright 2017: Dylan Ishihara, Saumya Telang, Roper Macaraeg</p>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
+<script src="js/blog.js" type="text/javascript"></script>
