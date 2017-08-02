@@ -1,10 +1,29 @@
+$(document).ready(getQuestion());
+
+function getQuestion() {
+    questionId;
+    min = Math.ceil(1);
+    max = Math.floor(question.length);
+    questionId = Math.floor(Math.random() * (max - min)) + min;
+    $.get("/api/questions" + questionId, function(data) {
+        console.log(data)
+        var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
+            lineNumbers = true,
+            theme: "3024-night",
+            value: data.question_func
+        })
+    })
+}
+
+
+
 var myCodeMirror = CodeMirror(document.getElementById("code-box"), {
     lineNumbers: true,
     theme: "3024-night",
     value: "function (x,y) {\n    x + y \n}"
 });
 
-myCodeMirror.setSize(800,auto)
+// myCodeMirror.setSize(800,auto)
 
 $('#test').on("click", function(){
 
