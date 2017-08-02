@@ -39,7 +39,8 @@ var getQuestion = function(question) {
             currentQMirror = {
                 lineNumbers: true,
                 theme: "3024-night",
-                value: data[qIndex].question_func
+                value: data[qIndex].question_func1 + "\n" + data[qIndex].question_func2 + "\n" + data[qIndex].question_func3
+                // value: "function (x,y) {\n    x + y \n}"
             };
             $('#question-box').append('<h4>' + data[qIndex].question_text + '</h4>');
             console.log(currentQMirror)
@@ -75,12 +76,7 @@ var getQuestion = function(question) {
             })
         });
     })
-    //     for (var i = 0; i < successQ; i++) {
-    //         if (questionId === successQ[i]) {
-    //             questionId = Math.floor(Math.random() * (allData.length - 1)) + 1;
-    //         }
-    //     }
-};
+}
     
 
 $(document).ready(getQuestion());
