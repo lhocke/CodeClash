@@ -20,7 +20,7 @@ File Structure:
     package.json
     liscense
 
-[ ] Replace ./public routes when server updated to static
-[ ] Determine best way to resize editor
-[ ] Confirm way to update editor and validation per question in database
-[ ] Replace default values when db set up
+- [ ] Replace ./public routes when server updated to static
+- [ ] Determine best way to resize editor
+- [ ] Confirm way to update editor and validation per question in database
+- [ ] Replace default values when db set up
