@@ -38,15 +38,15 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 // FOR HANDLEBARS PER TUTORIAL
 // app.set('views', './views')
-// app.engine('hbs', exphbs({
-//     extname: '.hbs'
+// app.engine('handlebars', exphbs({
+//     extname: '.handlebars'
 // }));
-// app.set('view engine', '.hbs');
+// app.set('view engine', '.handlebars');
 
 require("./routes/api-routes.js")(app, passport);
 require("./routes/html-routes.js")(app);
 //load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport);
 
 // change force to false if we want to keep the model/table or this will drop it.
 // change force to true to drop the model/table if it exists
