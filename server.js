@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 7500;
 var app = express();
 
 var db = require("./models");
+var User = require('./models/index').User;
 var authRoute = require('./routes/html-routes.js')(app); //check path (different from tutorial)
 
 app.use(express.static("public"));
