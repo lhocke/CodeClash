@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 7500;
 var app = express();
 
 var db = require("./models");
+var User = require('./models/index').User;
 var authRoute = require('./routes/html-routes.js')(app); //check path (different from tutorial)
 
 app.use(express.static("public"));
@@ -37,7 +38,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 require("./routes/api-routes.js")(app, passport);
-require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js")(app, passport);
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.user);
 

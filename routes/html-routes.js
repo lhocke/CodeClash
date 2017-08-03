@@ -1,6 +1,6 @@
 var path = require('path');
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
     app.get('/', function (req, res, next) {
         res.render('signin', {layout: 'signin-layout'});
     });
@@ -9,7 +9,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, '../public/mirror.html'));
     });
 
-    app.get('/profile', function(req, res, next) {
+    app.get('/profile', isLoggedIn, function(req, res, next) {
         res.render('profile', {layout: 'profile-layout'});
     });
 
@@ -24,4 +24,14 @@ module.exports = function(app) {
     app.get('/logout', function(req, res) {
         res.render('logout');
     });
+
+    function isLoggedIn(req, res, next) {
+ 
+    if (req.isAuthenticated())
+     
+        return next();
+         
+    res.redirect('/signin');
+ 
+};
 };

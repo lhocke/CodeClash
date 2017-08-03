@@ -3,7 +3,7 @@ var passport = require('passport'); //passport check
 var path = require('path');
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function(app, passport) {
 
   // app.post('/login',
   // passport.authenticate('local', {
@@ -63,9 +63,9 @@ module.exports = function(app) {
     });
   });
 
-  app.post('/signin', passport.authenticate('local-signup', {
+  app.post('/signin', passport.authenticate('local-signin', {
       successRedirect: '/profile',
-      failureRedirect: '/signup'
+      failureRedirect: '/signin'
   }));
 
   app.post('/signup', passport.authenticate('local-signup', {
