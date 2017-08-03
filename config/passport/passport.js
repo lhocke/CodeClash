@@ -1,4 +1,5 @@
 var bCrypt = require('bcrypt-nodejs');
+// var User = require('../../../models/user.js');
 
 module.exports = function(passport, user) {
   var User = user;
