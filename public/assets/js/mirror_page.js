@@ -26,14 +26,16 @@ var getQuestion = function(question) {
             data = data[qIndex];
             currentQMirror = {
                 lineNumbers: true,
+                viewportMargin: Infinity,
                 theme: "3024-night",
                 value: data.question_func1 + "\n" + data.question_func2 + "\n" + data.question_func3
+                
             };
 
             $('#question-box').append('<h4>' + data.question_text + '</h4>');
 
-            var myCodeMirror =  CodeMirror(document.getElementById("code-box"), currentQMirror)
-
+            var myCodeMirror =  CodeMirror(document.getElementById("code-box"), currentQMirror);
+            myCodeMirror.setSize(null, 400);
             $('#test').on("click", function(){
                 var code = myCodeMirror.getValue();
                 var funcBody = code.split('{');
