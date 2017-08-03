@@ -4,15 +4,19 @@
 
 #input-background {
 	background-color: gray;
+	height: 500px;
+	margin-top: 150px;
+	padding-top: 80px;
 }
 
 .site-footer {
-	background-color: orange;
+	background-color: green;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 60px;
 }
+
 body {
     margin-bottom: 60px;
 }
@@ -27,6 +31,12 @@ body {
 	position: fixed;
 	opacity: 0.90;
 	z-index: -1;
+}
 
-#names {
+#names{
     margin-top: 20px;
+}
+
+.spacer {
+	margin: 10px 0px;
+}

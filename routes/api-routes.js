@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require('passport'); //passport check
-
+var path = require('path');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -19,7 +19,7 @@ module.exports = function(app) {
   // });
 
   // RM: I need to work out the route
-  app.get('/api/profile/:id', function (req, res) {
+  app.get('/profile/:id', function (req, res) {
     db.User.findAll({
       where: {
         id: req.params.id
@@ -29,8 +29,8 @@ module.exports = function(app) {
         user: dbUser[0]
       };
       console.log('GET: api/profile/:id', hbsObject);
-      res.json(dbUser);
-      // res.render('profile', hbsObject);
+      // res.json(dbUser);
+      res.render('profile', hbsObject);
     });
   });
 
