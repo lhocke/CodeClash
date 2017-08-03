@@ -43,7 +43,7 @@ require('./config/passport/passport.js')(passport, db.user);
 
 // change force to false if we want to keep the model/table or this will drop it.
 // change force to true to drop the model/table if it exists
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
