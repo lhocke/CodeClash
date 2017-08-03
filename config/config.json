@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Noix72NfyvPJdkQq",
+    "password": "password",
     "database": "code_clash_db",
     "host": "localhost",
     "dialect": "mysql"
