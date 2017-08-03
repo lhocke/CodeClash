@@ -23,9 +23,9 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    about: {
-        type: DataTypes.TEXT
-    },
+    // about: {
+    //     type: DataTypes.TEXT
+    // },
     email: {
         type: DataTypes.STRING,
         validate: {
