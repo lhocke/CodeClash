@@ -59,16 +59,21 @@ var funCheck = function(data, func) {
     for (var i = 0; i < data.exp_val.length; i++){
         var argAg = [];
         var indArg = data.valid_args[i].split(',');
+        var c = 0;
         for (var x = 0; x < indArg.length; x++) {
             var arg = parseInt(indArg[x]);
             console.log(indArg[x])
-            argAg.push(arg)
+            
+            c += parseInt(indArg[x])
+            c += ','
         }
-        console.log(typeof(argAg))
-        argAg = argAg.toString()
-        console.log(typeof(argAg))
-        console.log(argAg)
-        if (func(argAg) == data.exp_val[i]) {
+        c = c.slice(0,-1)
+        c = c.split(',')
+        // console.log(typeof(argAg))
+        // argAg = argAg.toString()
+        // console.log(typeof(argAg))
+        // console.log(argAg)
+        if (func(c) == data.exp_val[i]) {
             passed++
             console.log("passed")
         } else {
