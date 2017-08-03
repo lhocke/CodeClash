@@ -33,33 +33,34 @@
         <div class="modal fade" tabindex="-1" role="dialog" id="fail-modal" aria-labelledby="fail-modal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-body" id="fail-body">
+                    <div class="modal-body text-center" id="fail-body">
                         <h3>Sorry, Try Again!</h3>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" id="fail-footer">
                         <a href="/profile"><button class="btn btn-primary" id="profile-btn">Back to My Profile</button></a>
                         <button class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>        
-        <div class="row">
+        <div class="row" id="top">
             <br>
             <br>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-7 text-justify" id="question-box"></div>
-            <div class="col-md-2">
-                <button class="btn btn-default" id="test">Test It!</button>
+        <div class="row" id="main">
+            <div class="row" id="question">
+                <div class="col-md-2"></div>
+                <div class="col-md-7 text-justify" id="question-box"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-default" id="test">Test It!</button>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" id="code-box"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" id="code-box"></div>
-            
-        </div>
-        
     </div>
     <footer>
         <p class="text-center" id="names">&copy; Copyright 2017: Dylan Ishihara, Saumya Telang, Roper Macaraeg</p>
