@@ -56,15 +56,19 @@ var funCheck = function(data, func) {
     var failed = 0;
     console.log("passed: " + passed)
 
-    for (var i = 0; i < data.valid_args.length; i++){
+    for (var i = 0; i < data.exp_val.length; i++){
         var argAg = [];
-        var indArg = data.valid_args[i].slice(1,-1).split(',');
+        var indArg = data.valid_args[i].split(',');
         for (var x = 0; x < indArg.length; x++) {
-            var arg + x = parseInt(indArg[x]);
-            console.log(this)
-            // argAg.push(this)
+            var arg = parseInt(indArg[x]);
+            console.log(indArg[x])
+            argAg.push(arg)
         }
-        if (func() == data.exp_val[i]) {
+        console.log(typeof(argAg))
+        argAg = argAg.toString()
+        console.log(typeof(argAg))
+        console.log(argAg)
+        if (func(argAg) == data.exp_val[i]) {
             passed++
             console.log("passed")
         } else {
