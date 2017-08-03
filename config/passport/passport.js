@@ -112,7 +112,8 @@ passport.use('local-signin', new LocalStrategy(
         });
  
  
-  }));
+  }
+  ));
 
   //serialize
   passport.serializeUser(function(user, done) {
@@ -127,7 +128,8 @@ passport.use('local-signin', new LocalStrategy(
       else {
         done(user.errors, null);
       }
-  };
-    });
   });
+    });
 }
+
+ 
