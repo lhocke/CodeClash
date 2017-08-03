@@ -4,18 +4,18 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  app.post('/login',
-  passport.authenticate('local', {
-    successRedirect: '/profile',
-    failureRedirect: '/',
-    failureFlash: 'Invalid username or password.'
-  }));
+  // app.post('/login',
+  // passport.authenticate('local', {
+  //   successRedirect: '/profile',
+  //   failureRedirect: '/',
+  //   failureFlash: 'Invalid username or password.'
+  // }));
 
-  app.get('/api/users/me',
-  passport.authenticate('basic', { session: false }),
-  function(req, res) {
-    res.json({ id: req.user.id, username: req.user.username });
-  });
+  // app.get('/api/users/me',
+  // passport.authenticate('basic', { session: false }),
+  // function(req, res) {
+  //   res.json({ id: req.user.id, username: req.user.username });
+  // });
 
 
 
