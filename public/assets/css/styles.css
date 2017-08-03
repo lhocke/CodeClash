@@ -2,11 +2,11 @@
 	color: white;
 }
 
-.test-background {
+#input-background {
 	background-color: gray;
 }
 
-footer {
+.site-footer {
 	background-color: orange;
 	height: 50px;
 }
@@ -15,4 +15,10 @@ footer {
 	background-color: orange;
 	height: 50px;
 	margin: 0px auto;
+}
+
+#signin-background {
+	position: fixed;
+	opacity: 0.90;
+	z-index: -1;
 }
