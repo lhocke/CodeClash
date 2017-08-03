@@ -1,6 +1,10 @@
 var successQ = []
 
 var getQuestion = function(question) {
+    // $('#next-btn').on('click', function() {
+    //     $(this).prop('disabled', true)
+    //     $(this).on('click', getQuestion())
+    // })
     $('.modal').modal('hide')
     $('#code-box').empty();
     $('#question-box').empty();
@@ -8,27 +12,18 @@ var getQuestion = function(question) {
 
     var questionId = question || "";
     if (questionId) {
-        questionId = "/?questionId" + questionId;
+        questionId = "/" + questionId;
     }
-    // checks if user has already answered a question this session
-    // for (var i = 0; i < successQ.length; i++){
-    //     if (successQ.length === 100) {
-    //         alert("No More Question, Check Back Later")
-    //     } else if (questionId = successQ[i] + 1) {
-    //         getQuestion()
-    //     }
-    // }
+
     // gets individual question data
     $.get("/api/questions", function(allData) {
         min = Math.ceil(1);
         max = Math.floor(allData.length + 1);
         questionId = Math.floor(Math.random() * (max - min)) + 1;
         var currentQMirror;
-        var qIndex = questionId - 1;
-        questionId = "/?questionId" + questionId
+        questionId = "/" + questionId
         
         $.get("/api/questions" + questionId, function(data) {
-            data = data[qIndex];
             currentQMirror = {
                 lineNumbers: true,
                 viewportMargin: Infinity,
@@ -160,10 +155,8 @@ var funCheck = function(data, func) {
         $('#fail-modal').modal('toggle');
     }
     // gets a new problem
-    $('#next-btn').on('click', function() {
-        $(this).prop('disabled', true)
-        $(this).on('click', getQuestion())
-    })
+    
 };    
 
 $(document).ready(getQuestion());
+
