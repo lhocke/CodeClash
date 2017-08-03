@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require('passport'); //passport check
 
 // Routes
 // =============================================================
@@ -16,8 +17,6 @@ module.exports = function(app) {
   // function(req, res) {
   //   res.json({ id: req.user.id, username: req.user.username });
   // });
-
-
 
   // RM: I need to work out the route
   app.get('/api/profile/:id', function (req, res) {
@@ -64,5 +63,14 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/signin', passport.authenticate('local-signup', {
+      successRedirect: '/profile',
+      failureRedirect: '/signup'
+  }));
+
+  app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect: '/profile',
+      failureRedirect: '/signup'
+  }));
 
 };
