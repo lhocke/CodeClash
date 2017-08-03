@@ -1,13 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    first_name: {
+    id: {
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+    },
+    firstname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 140]
       }
     },
-    last_name: {
+    lastname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -15,12 +20,30 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
+        type: DataTypes.TEXT,
+        allowNull: false
     },
+    about: {
+        type: DataTypes.TEXT
+    },
+    email: {
+        type: DataTypes.STRING,
+        validate: {
+            isEmail: true
+        }
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    last_login: {
+        type: DataTypes.DATE
+    },
+    status: {
+        type: DataTypes.ENUM('active', 'inactive'),
+        defaultValue: 'active'
+    },
+    // Game Stats -------------------------------
     solo_wins: {
       type: DataTypes.INTEGER,
       defaultValue: 0
@@ -29,23 +52,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
-    // // below code adds columns for the duels if we have time
-    // duel_wins: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue: 0
-    // },
-    // duel_losses: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue: 0
-    // },
     score: {
       type: DataTypes.INTEGER,
       defaultValue: 0
     }
-    // first_time: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: true
-    // }
   });
 
   return User;
