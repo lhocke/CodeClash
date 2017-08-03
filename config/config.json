@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Noix72NfyvPJdkQq",
+    "password": "password",
     "database": "code_clash_db",
     "host": "localhost",
     "dialect": "mysql"
@@ -17,4 +17,3 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
-}
