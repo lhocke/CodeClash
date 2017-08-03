@@ -38,7 +38,7 @@ var getQuestion = function(question) {
                 var code = myCodeMirror.getValue();
                 var funcBody = code.split('{');
                 funcBody = funcBody[1];
-                funcBody = funcBody.split('}')[0];
+                funcBody = funcBody.slice(0,-1);
 
                 var funcArg = code.split(')')[0].split('(')[1];
                 funcArg = [funcArg];
@@ -54,31 +54,138 @@ var funCheck = function(data, func) {
     var currentQ = data.id
     var passed = 0;
     var failed = 0;
-    console.log("passed: " + passed)
+    
+    
 
     for (var i = 0; i < data.exp_val.length; i++){
+        console.log("passed: " + passed)
+
+        var a ="";
+        var b = '';
+        var c = '';
+        var d = '';
+        var e = '';
+        var f = '';
+        var finArg = 0;
+        console.log(finArg)
+        console.log(data.valid_args[i])
         var argAg = [];
         var indArg = data.valid_args[i].split(',');
-        var c = 0;
+        // var c  = 0;
+
         for (var x = 0; x < indArg.length; x++) {
-            var arg = parseInt(indArg[x]);
-            console.log(indArg[x])
-            
-            c += parseInt(indArg[x])
-            c += ','
+            if (typeof(parseInt(indArg[x])) === NaN){
+                if (!a){
+                    a = indArg[x]
+                    console.log(a)
+                } else if (a && !b) {
+                    b = indArg[x]
+                    console.log(b)
+                } else if (a && b && !c) {
+                    c = indArg[x]
+                    console.log(c)
+                } else if (a && b && c && !d) {
+                    d = indArg[x]
+                    console.log(d)
+                } else if (a && b && c && d && !e) {
+                    e = indArg[x]
+                    console.log(e)
+                } else if (a && b && c && d && e && !f) {
+                    f = indArg[x]
+                    console.log(f)
+                }
+            }else {
+                if (!a){
+                    a = parseInt(indArg[x])
+                    console.log(a)
+                } else if (a && !b) {
+                    b = parseInt(indArg[x])
+                    console.log(b)
+                } else if (a && b && !c) {
+                    c = parseInt(indArg[x])
+                    console.log(c)
+                } else if (a && b && c && !d) {
+                    d = parseInt(indArg[x])
+                    console.log(d)
+                } else if (a && b && c && d && !e) {
+                    e = parseInt(indArg[x])
+                    console.log(e)
+                } else if (a && b && c && d && e && !f) {
+                    f = parseInt(indArg[x])
+                    console.log(f)
+                }
+            }
+
+            // var arg = parseInt(indArg[x]);
+            // console.log(indArg[x])
+
         }
-        c = c.slice(0,-1)
-        c = c.split(',')
-        // console.log(typeof(argAg))
-        // argAg = argAg.toString()
-        // console.log(typeof(argAg))
-        // console.log(argAg)
-        if (func(c) == data.exp_val[i]) {
+        // var finFunc = ""
+        // checks that function returns the expected value
+        if (a && !b) {
+            var finFunc = func(a)
+            console.log("one")
+            if (finFunc == data.exp_val[i]) {
             passed++
             console.log("passed")
-        } else {
-            failed++                            
-        };
+            } else {
+                failed++ 
+                console.log("failed")                           
+            };
+        } else if (a && b && !c) {
+            var finFunc = func(a,b)
+            console.log("two")
+            console.log(finFunc)
+            if (finFunc == data.exp_val[i]) {
+            passed++
+            console.log("passed")
+            } else {
+                console.log("failed")
+                failed++                            
+            }       
+        } else if (a && b && c && !d) {
+            var finFunc = func(a,b,c)
+            console.log("three")
+            if (finFunc == data.exp_val[i]) {
+            passed++
+            console.log("passed")
+            } else {
+                console.log("failed")
+                failed++                            
+            }
+            // finArg = a,b,c
+        } else if (a && b && c && d && !e) {
+            var finFunc = func(a,b,c,d)
+            console.log("four")
+            if (finFunc == data.exp_val[i]) {
+            passed++
+            console.log("passed")
+            } else {
+                console.log("failed")
+                failed++                            
+            }
+        } else if (a && b && c && d && e && !f) {
+            var finFunc = func(a,b,c,d,e)
+            console.log("five")
+            if (finFunc == data.exp_val[i]) {
+            passed++
+            console.log("passed")
+            } else {
+                console.log("failed")
+                failed++                            
+            }
+        } else if (a,b,c,d,e,f) {
+            var finFunc = func(a,b,c,d,e,f)
+            console.log("six")
+            if (finFunc == data.exp_val[i]) {
+            passed++
+            console.log("passed")
+            } else {
+                console.log("failed")
+                failed++                            
+            }
+        }
+        console.log(data.exp_val[i])
     }
 
     if (passed === data.exp_val.length) {
@@ -86,6 +193,7 @@ var funCheck = function(data, func) {
         $('#success-modal').modal('toggle');
         // 
     } else {
+        $('#fail-body').empty()
         $('#fail-body').append("<h4>Sorry, Try Again!\nFailed " + failed + " tests</h4>")
         $('#fail-modal').modal('toggle');
     }
