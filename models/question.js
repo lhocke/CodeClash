@@ -15,18 +15,20 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         question_func2: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
-            }
+            },
+            defaultValue: '//Your Code Here\n    '
         },
         question_func3: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
-            }
+            },
+            defaultValue: '}'
         },
         valid_args: {
             type: DataTypes.STRING,
@@ -50,6 +52,8 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         }
-    })
+    });
+    
     return Question;
+    Question.belongsToMany(User, {through: 'Arena'});
 }

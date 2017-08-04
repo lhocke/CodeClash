@@ -46,6 +46,12 @@ module.exports = function(app, passport) {
     // });
   });
 
+  // app.put("/api/profile/:id", function(req, res) {
+  //   db.User.update(
+  //     req.body.
+  //     )
+  // })
+
   app.get('/api/questions', function (req, res) {
     db.Question.findAll({
     }).then(function(dbQuestion) {
@@ -53,7 +59,7 @@ module.exports = function(app, passport) {
     });
   });
 
-  app.get('/questions/:id', function (req, res) {
+  app.get('/api/questions/:id', function (req, res) {
     db.Question.findOne({
       where: {
         id: req.params.id
