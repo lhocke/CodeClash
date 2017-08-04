@@ -1,49 +1,45 @@
 var db = require("../models");
-var passport = require('passport'); //passport check
+var passport = require('passport');
 var path = require('path');
+var bcrypt = require("bcrypt");
+
+//Turning it into a hashbrown and putting salt on it
+//salt adds an extra layer of crypting
+var saltRounds = 10;
+
 // Routes
 // =============================================================
 module.exports = function(app, passport) {
 
-  // app.post('/login',
-  // passport.authenticate('local', {
-  //   successRedirect: '/profile',
-  //   failureRedirect: '/',
-  //   failureFlash: 'Invalid username or password.'
-  // }));
+  app.post("/",
+    passport.authenticate('local', { 
+        successRedirect: '/profile',
+        failureRedirect: '/',
+        // failureFlash: true 
+    })
+  );
 
-  // app.get('/api/users/me',
-  // passport.authenticate('basic', { session: false }),
-  // function(req, res) {
-  //   res.json({ id: req.user.id, username: req.user.username });
-  // });
-
-  // RM: I need to work out the route
-  app.get('/profile/:id', function (req, res) {
+  app.get('/api/profile/:id', function (req, res) {
     db.User.findAll({
       where: {
         id: req.params.id
       }
     }).then(function(dbUser) {
-      var hbsObject = {
-        user: dbUser[0]
-      };
-      console.log('GET: api/profile/:id', hbsObject);
-      // res.json(dbUser);
-      res.render('profile', hbsObject);
+      console.log(dbUser)
+      console.log('GET: /profile/:id', dbUser[0]);
+      res.json(dbUser);
     });
   });
 
   app.post("/api/profile/:id", function(req, res) {
-    // db.Burger.create(req.body).then(function(dbBurger) {
-    //   console.log('dbBurger post', dbBurger)
-    //   console.log('dbBurger sections', Object.keys(dbBurger.dataValues.burger_name))
-    //   var hbsObject = {
-    //     burger: dbBurger
-    //   };
-    //   console.log('from post', hbsObject);
-    //   res.render("index", hbsObject)
-    // });
+    db.User.create(req.body).then(function(dbUser) {
+      console.log('dbUser post', dbUser)
+      // var hbsObject = {
+      //   burger: dbBurger
+      // };
+      res.json(dbUser);
+      // res.render("index", hbsObject)
+    });
   });
 
   app.get('/api/questions', function (req, res) {
@@ -62,15 +58,4 @@ module.exports = function(app, passport) {
       res.json(dbQuestion);
     });
   });
-
-  app.post('/signin', passport.authenticate('local-signin', {
-      successRedirect: '/profile',
-      failureRedirect: '/signin'
-  }));
-
-  app.post('/signup', passport.authenticate('local-signup', {
-      successRedirect: '/profile',
-      failureRedirect: '/signup'
-  }));
-
 };

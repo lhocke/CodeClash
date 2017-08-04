@@ -1,5 +1,7 @@
+var bcrypt = require('bcrypt');
+
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+  var User = sequelize.define("user", {
     id: {
         autoIncrement: true,
         primaryKey: true,
@@ -7,14 +9,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     firstname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1, 140]
       }
     },
     lastname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1, 140]
       }
@@ -29,12 +31,16 @@ module.exports = function(sequelize, DataTypes) {
     email: {
         type: DataTypes.STRING,
         validate: {
-            isEmail: true
+            isEmail: true,
+            len: [1]
         }
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true,
+        validate: {
+          len: [1, 140]
+        }
     },
     last_login: {
         type: DataTypes.DATE
@@ -60,6 +66,10 @@ module.exports = function(sequelize, DataTypes) {
 
     // }
   });
+
+  User.prototype.validPassword = function (password) {
+      return bcrypt.compareSync(password, this.password)
+  }
 
   return User;
 };

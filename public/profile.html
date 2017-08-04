@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile</title>
+	<!-- Bootstrap link -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Insert the file path to your custom css below -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Check if below path still works in handlebars -->
+	<script type="text/javascript" src="./assets/js/profile_page.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<h1 id="header-text">CODE CLASH</h1>
+					</div>
+					<div class="col-md-2">
+						<a href="/arena"><h3>Go to Arena</h3></a>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container test-background">
+		<div class="row">
+			<!-- Add handlebars to the user span? -->
+			<h3 id="stat-header"><span class="user-render">User</span>'s Profile Page</h3>
+		    <div class="col-md-12">
+			  	
+			  	<div class="row">
+			  		<div class="col-md-12">
+			  			<h4>Player Score: </h4>
+			  			<h4>Solo Stats</h4>
+						<ul>
+							<li>Solo Wins: <span id="solo-win-render"></span></li>
+							<li>Solo Losses: <span id="solo-loss-render"></span></li>
+							<li>Total Solo Attempts: <span id="solo-attempts-render"></span></li>
+							<li>Percentage Correct: <span id="solo-percentage-render"></span>
+						</ul>
+			  		</div>
+			  	</div>
+		    </div>
+		</div>
+	</div>
+
+	<footer>
+		<p class="text-center" id="names">&copy; Copyright 2017: Dylan Ishihara, Saumya Telang, Roper Macaraeg</p>
+	</footer>
+	
+</body>
+</html>
