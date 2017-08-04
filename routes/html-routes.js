@@ -35,7 +35,6 @@ module.exports = function(app, passport) {
         // res.render('logout');
         res.sendFile(path.join(__dirname, '../public/logout.html'));
     });
-
     // function isLoggedIn(req, res, next) {
  
     // if (req.isAuthenticated())
@@ -45,4 +44,5 @@ module.exports = function(app, passport) {
     // res.redirect('/');
  
     // };
+
 };

@@ -72,4 +72,5 @@ module.exports = function(sequelize, DataTypes) {
   }
 
   return User;
+  User.belongsToMany(Question, {through: 'Arena'});
 };
