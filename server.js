@@ -4,6 +4,7 @@ var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 var flash = require('connect-flash'); //needed?
 var session = require('express-session');
+var GoogleAuth = require('google-auth-library');
 
 
 
@@ -50,7 +51,7 @@ require("./routes/html-routes.js")(app, passport);
 //load passport strategies
 require('./config/passport.js')(passport, db.User);
 
-require('./config/auth.js')
+require('./config/auth.js');
 
 // require("./config/passport") //ADD BACK AND REMOVE ABOVE PER MARIAM'S WORK
 
