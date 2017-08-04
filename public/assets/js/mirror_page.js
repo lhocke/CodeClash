@@ -5,6 +5,11 @@ var getQuestion = function(question) {
     //     $(this).prop('disabled', true)
     //     $(this).on('click', getQuestion())
     // })
+    $(function(){
+        $('#next-btn').on('click', function() {
+            getQuestion()
+        })
+    })
     $('.modal').modal('hide')
     $('#code-box').empty();
     $('#question-box').empty();
@@ -69,13 +74,14 @@ var funCheck = function(data, func) {
         // console.log(func('letter'))
         // defines variables for arguments based on expected number
         for (var x = 0; x < indArg.length; x++) {
-            console.log(parseInt(indArg[x]))
-            if (parseInt(indArg[x]) === /([0-9])/g) {
-                console.log(indArg[x])
+            // console.log(parseInt(indArg[x]))
+            if (Number.isInteger(parseInt(indArg[x]))) {
+                // console.log(indArg[x])
                 if (!a){
                     a = parseInt(indArg[x])
                 } else if (a && !b) {
                     b = parseInt(indArg[x])
+                    console.log(typeof(b))
                 } else if (b && !c) {
                     c = parseInt(indArg[x])
                 } else if (c && !d) {
@@ -85,14 +91,13 @@ var funCheck = function(data, func) {
                 } else if (e && !f) {
                     f = parseInt(indArg[x])
                 }
-            }else {
+            } else {
                 if (!a){
                     a = indArg[x]
                     console.log(a)
                 } else if (a && !b) {
                     b = indArg[x]
-                    console.log(b)
-                } else if (b && !c) {
+                                    } else if (b && !c) {
                     c = indArg[x]
                 } else if (c && !d) {
                     d = indArg[x]
@@ -113,7 +118,10 @@ var funCheck = function(data, func) {
                 failed++
             };
         } else if (b && !c) {
+            console.log('second')
             var finFunc = func(a,b)
+            console.log(data.exp_val[i])
+            console.log(finFunc)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
@@ -153,7 +161,8 @@ var funCheck = function(data, func) {
     // checks that function has passed all tests
     if (passed === data.exp_val.length) {
         successQ.push(currentQ);
-        $('#success-modal').modal('toggle'); 
+        $('#success-modal').modal('toggle');
+        // setTimout(getQuestion, 5000) 
     } else {
         $('#fail-body').empty()
         $('#fail-body').append("<h4>Sorry, Try Again!\nFailed " + failed + " tests</h4>")
