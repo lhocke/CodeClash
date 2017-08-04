@@ -45,7 +45,6 @@ var getQuestion = function(question) {
                 funcArg = [funcArg];
                 // creates new function to be checked
                 var func = new Function(funcArg, funcBody);
-
                 funCheck(data, func)
             })
         });
@@ -66,23 +65,13 @@ var funCheck = function(data, func) {
         var e = '';
         var f = '';
         var indArg = data.valid_args[i].split(',');
+        // console.log(indArg)
+        // console.log(func('letter'))
         // defines variables for arguments based on expected number
         for (var x = 0; x < indArg.length; x++) {
-            if (typeof(parseInt(indArg[x])) === NaN){
-                if (!a){
-                    a = indArg[x]
-                } else if (a && !b) {
-                    b = indArg[x]
-                } else if (b && !c) {
-                    c = indArg[x]
-                } else if (c && !d) {
-                    d = indArg[x]
-                } else if (d && !e) {
-                    e = indArg[x]
-                } else if (e && !f) {
-                    f = indArg[x]
-                }
-            }else {
+            console.log(parseInt(indArg[x]))
+            if (parseInt(indArg[x]) === /([0-9])/g) {
+                console.log(indArg[x])
                 if (!a){
                     a = parseInt(indArg[x])
                 } else if (a && !b) {
@@ -95,6 +84,22 @@ var funCheck = function(data, func) {
                     e = parseInt(indArg[x])
                 } else if (e && !f) {
                     f = parseInt(indArg[x])
+                }
+            }else {
+                if (!a){
+                    a = indArg[x]
+                    console.log(a)
+                } else if (a && !b) {
+                    b = indArg[x]
+                    console.log(b)
+                } else if (b && !c) {
+                    c = indArg[x]
+                } else if (c && !d) {
+                    d = indArg[x]
+                } else if (d && !e) {
+                    e = indArg[x]
+                } else if (e && !f) {
+                    f = indArg[x]
                 }
             }
         }
@@ -155,7 +160,8 @@ var funCheck = function(data, func) {
         $('#fail-modal').modal('toggle');
     }
     // gets a new problem
-    
+    console.log('passed:', passed)
+    console.log('failed:', failed)
 };    
 
 $(document).ready(getQuestion());
