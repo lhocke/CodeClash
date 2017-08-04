@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Question = sequelize.define("Question", {
         question_text: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1]
