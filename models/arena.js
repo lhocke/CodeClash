@@ -1,5 +1,3 @@
-//RM: I just put this model here to test if the server.js will work.
-
 module.exports = function(sequelize, DataTypes) {
     var Arena = sequelize.define("Arena", {
         arena_name: {
