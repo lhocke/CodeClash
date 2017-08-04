@@ -105,43 +105,43 @@ var funCheck = function(data, func) {
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             };
-        } else if (a && b && !c) {
+        } else if (b && !c) {
             var finFunc = func(a,b)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             }       
-        } else if (a && b && c && !d) {
+        } else if (c && !d) {
             var finFunc = func(a,b,c)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             }
             // finArg = a,b,c
-        } else if (a && b && c && d && !e) {
+        } else if (d && !e) {
             var finFunc = func(a,b,c,d)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             }
-        } else if (a && b && c && d && e && !f) {
+        } else if (e && !f) {
             var finFunc = func(a,b,c,d,e)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             }
-        } else if (a,b,c,d,e,f) {
+        } else if (e && f) {
             var finFunc = func(a,b,c,d,e,f)
             if (finFunc == data.exp_val[i]) {
             passed++
             } else {
-                failed++                            
+                failed++
             }
         }
     }

@@ -8,7 +8,7 @@ INSERT INTO Questions(question_text, question_func1, question_func2, valid_args,
 VALUES('Create a function that that takes a string and returns the midle letters.\nIf there are an odd number of letters return only the middle letter (i.e. James should return "m"). If there are an even number of letters it should return the two midddle letters ("letter" should return "tt").\nGood Luck!', 'function(n) {', '    //Your Code Here', 'letter;John;Roper;Saumya;David;apple;Jeff;Jack;','tt;oh;p;um;v;p;ef;ac');
 
 INSERT INTO Questions(question_text, question_func1, question_func2, valid_args, exp_val) 
-VALUES('')
+VALUES('Create a function that sorts an array of numbers and ')
 
 INSERT INTO Questions(question_text, question_func1, question_func2, valid_args, exp_val) 
 VALUES
