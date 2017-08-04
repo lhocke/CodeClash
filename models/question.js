@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             },
-            defaultValue: '//Your Code Here\n    '
+            defaultValue: '//Your Code Here\n'
         },
         question_func3: {
             type: DataTypes.STRING,

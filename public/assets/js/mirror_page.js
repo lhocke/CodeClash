@@ -45,7 +45,6 @@ var getQuestion = function(question) {
                 funcArg = [funcArg];
                 // creates new function to be checked
                 var func = new Function(funcArg, funcBody);
-
                 funCheck(data, func)
             })
         });
