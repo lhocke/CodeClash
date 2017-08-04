@@ -31,6 +31,13 @@ module.exports = function(sequelize, DataTypes) {
 
   var User = sequelize.define("user", {
 
+  //   google: {
+  //   id: String,
+  //   token: String,
+  //   email: String,
+  //   name: String
+  // },
+
     id: {
         autoIncrement: true,
         primaryKey: true,
