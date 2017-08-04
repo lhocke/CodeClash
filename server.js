@@ -5,6 +5,9 @@ var exphbs = require('express-handlebars');
 var flash = require('connect-flash'); //needed?
 var session = require('express-session');
 
+
+
+
 //cookies is needed to remember that users are logged in. Reads cookies
 var cookieParser = require("cookie-parser");
 //telling server start using cookie parser
@@ -45,8 +48,11 @@ app.use(cookieParser());
 require("./routes/api-routes.js")(app, passport);
 require("./routes/html-routes.js")(app, passport);
 //load passport strategies
-// require('./config/passport/passport.js')(passport, db.User);
-require("./config/passport") //ADD BACK AND REMOVE ABOVE PER MARIAM'S WORK
+require('./config/passport.js')(passport, db.User);
+
+require('./config/auth.js')
+
+// require("./config/passport") //ADD BACK AND REMOVE ABOVE PER MARIAM'S WORK
 
 // change force to false if we want to keep the model/table or this will drop it.
 // change force to true to drop the model/table if it exists
