@@ -1,26 +1,13 @@
-# project-2
-Second Project
+# CodeClash
 
-File Structure:
-    server.js
-    config
-        config.json
-    models
-        index.js
-    public
-        assets
-            css
-                styles.css
-            images
-    views
-        index.handlebars
-        layouts
-            main.handlbars (html)
-    README.md
-    package.json
-    liscense
+CodeClash is an interactive coding quiz that uses CodeMirror and MySQL to give a user a problem, take the user's input and run a series of test cases to determine the validity of the solution. By storing the test arguments and expected values rather than attempting to match input exactly we are able to check for a number of possible answers. CodeClash uses npm pacakges sequelize, express, mysql2, bcrypt, passport, body-parser, and method-orverride.
 
-- [ ] Replace ./public routes when server updated to static
-- [ ] Determine best way to resize editor
-- [ ] Confirm way to update editor and validation per question in database
-- [ ] Replace default values when db set up
+
+## Walkthroughs
+
+### Arena
+
+#### Demo
+
+#### Code
+
